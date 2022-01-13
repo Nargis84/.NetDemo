@@ -1,0 +1,333 @@
+1) Take 2 numbers from  user
+Add, subract, multiply and divide teh numbers and print the result of each
+Soln-
+using System;
+
+
+class Calculator{
+    int a,b;
+    public Calculator(int a,int b)
+    {
+        this.a=a;
+        this.b=b;
+    }
+    public int add(){
+        return a+b;
+    }
+    
+    public int sub(){
+        return a-b;
+    }
+   public int multiply(){
+        return a*b;
+    }
+	public double divide(){
+		return a/b;
+	}
+}
+public class Program
+{
+	public static void Main(string[] args)
+	{
+		Console.WriteLine ("Enter first number");
+        int firstnumber=Int32.Parse(Console.ReadLine());
+		Console.WriteLine ("Enter second number");
+        int secondnumber=Int32.Parse(Console.ReadLine());
+		Calculator calculator=new Calculator(firstnumber,secondnumber);
+		Console.WriteLine("Addition of "+firstnumber+" and "+secondnumber+": "+calculator.add());
+		Console.WriteLine("Subtraction of "+firstnumber+" and "+secondnumber+": "+calculator.sub());
+		Console.WriteLine("Multiplication of "+firstnumber+" and "+secondnumber+": "+calculator.multiply());
+		try{
+			Console.WriteLine("Division of "+firstnumber+" and "+secondnumber+": "+calculator.divide());
+		}
+		catch(Exception e){
+			Console.WriteLine(e);
+		}
+			
+		
+		
+	
+	}
+}
+
+****************************************************************************************************************************************
+2) Take numbers from user until a negative value is given and find the sum of all the numbers given
+Sample
+10
+21
+40
+-1
+The sum is 71
+
+Soln-
+public class Program
+{
+	public static void Main(string[] args)
+	{
+       int[] arrayofpositivenumber=new int[10];
+		Console.WriteLine("Enter the array elements");
+		int num=0;
+		while(true){
+			num=Int32.Parse(Console.ReadLine());
+			if((num<0))
+			{
+				break;
+			}		
+				for(int i=0;i<arrayofpositivenumber.Length;i++)
+				{
+						arrayofpositivenumber[i]=num;
+				}	
+		   }
+		
+		int sum = 0;
+        foreach (int item in arrayofpositivenumber) {
+            sum += item;
+        }
+
+		Console.WriteLine("Sum of Integer are:{0}",sum);
+	
+	}
+							  
+}
+
+
+****************************************************************************************************************************************************
+3) Create a method with name calculate tax
+Take the amount, tax% from user print the total payable after adding the tax
+Formula -  amount +(amount*tax/100)
+ Soln-
+using System;
+
+
+public class Program
+{
+	public static void Main(string[] args)
+	{
+		Console.WriteLine("Enter your amount");
+		int amount=Int32.Parse(Console.ReadLine());
+		Console.WriteLine("Enter tax %");
+		int taxpercentage=Int32.Parse(Console.ReadLine());
+		Console.WriteLine("Total amount after adding tax: {0:c}",taxcalculator(amount,taxpercentage));
+		
+	}  
+	
+	static int taxcalculator(int amount,int tax){
+		return amount+((amount*tax)/100);
+	}
+							  
+}
+
+*********************************************************************************************************************************************************
+4) Create a method that will print all the even numbers up to 10
+Soln-
+using System;
+
+
+public class Program
+{
+	public static void Main(string[] args)
+	{
+		for(int i=0;i<=10;i++)
+		{
+			if((i%2==0))
+				Console.Write("{0},",i);
+		}
+			
+	}  	
+							  
+}
+
+********************************************************************************************************************************************************
+5) Improve the code for question 4 to print all the even numbers up to a given number(The number to be taken from user)
+Soln-
+using System;
+
+
+public class Program
+{
+	public static void Main(string[] args)
+	{
+		Console.WriteLine("Enter no upto you want to find even number");
+		int number=Int32.Parse(Console.ReadLine());
+		for(int i=0;i<=number;i++)
+		{
+			if((i%2==0))
+				Console.Write("{0},",i);
+		}
+			
+	}  	
+							  
+}
+
+**********************************************************************************************************************************************************
+6) Write a method that will take username and password frm user and check if the username is "admin" and password is "1234" then print welcome.
+ If not then print "invalid username or password"
+Soln-
+-using System;
+				 
+  public class ValidUser  
+   {  
+     public static void Main(string[] args)  
+      {  
+          String user, pass;    
+          Console.Write("Enter Username: ");    
+          user = Console.ReadLine();
+		  Console.Write("Enter Password: ");   
+          pass = Console.ReadLine();
+		 if(user.Equals("admin") && pass.Equals("1234"))
+			 Console.Write("Welcome");
+		 else
+			 Console.Write("Invalid Username or Password");
+     }  
+   }  
+
+*************************************************************************************************************************************************************
+7) Create a method that will take  15 numbers from user and calculate the average of all number that are divisible by 7
+Soln-
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+
+public class Programme
+{
+    public static void Main(string[] a)
+    {
+        int[] arr = new int[15];
+        int count = 0;
+
+        for (int i = 1; i <= 15; i++)
+        {
+            Console.WriteLine("Enter the number: ");
+            int number = Int32.Parse(Console.ReadLine());
+
+            if(number%7==0)
+            {
+                for(int j=0;j<15;j++)
+                {
+                    arr[i] = number;
+                    
+                }
+                count++;
+            }
+        }
+
+        int sum = 0;
+        foreach(int num in arr)
+        {
+            sum += num;
+        }
+
+        try { Console.WriteLine("Average {0}", sum / count); }
+        catch (DivideByZeroException e) { Console.WriteLine(e); }
+        
+    }
+    
+}
+
+*************************************************************************************************************************************************************
+8) Take a number from user and check if it is prime or not
+Soln-
+using System;
+				 
+  public class PrimeNumberExample  
+   {  
+     public static void Main(string[] args)  
+      {  
+          int n, i, m=0, flag=0;    
+          Console.Write("Enter the Number to check Prime: ");    
+          n = int.Parse(Console.ReadLine());  
+          m=n/2;    
+          for(i = 2; i <= m; i++)    
+          {    
+           if(n % i == 0)    
+            {    
+             Console.Write("Number is not Prime");    
+             flag=1;    
+             break;    
+            }    
+          }    
+          if (flag==0)    
+           Console.Write("Number is Prime");       
+     }  
+   }  
+
+**************************************************************************************************************************************************************
+9) Take a min and a max number from user and find all teh prime numbers between the range
+Soln-
+using System;
+				 
+  public class PrimeNumberExample  
+   {  
+     public static void Main(string[] args)  
+      {
+    int a, b, i, j, flag;
+    Console.WriteLine("Enter min number ");
+    a = int.Parse(Console.ReadLine());
+     Console.WriteLine("Enter max number ");        
+    b = int.Parse(Console.ReadLine());
+    Console.WriteLine("\nPrime numbers between " + "{0} and {1} are: ", a, b);
+ 
+    for(i = a; i <= b; i++)
+    {
+        if (i == 1 || i == 0)
+            continue;
+ 
+        flag = 1;
+ 
+        for(j = 2; j <= i / 2; ++j)
+        {
+            if (i % j == 0)
+            {
+                flag = 0;
+                break;
+            }
+        }
+ 
+        if (flag == 1)
+            Console.WriteLine(i);
+    	}
+	}
+ }
+
+**************************************************************************************************************************************************************
+10) Take the name, gender and age from user. Print the details in the following format
+Pease enter your name:
+Kavin
+Please enter your gender
+Male
+Please enter your age
+21
+Hi Mr. Kavin you are 21 years old
+ 
+Pease enter your name:
+Sita
+Please enter your gender
+Female
+Please enter your age
+31
+Hi Miss. Sita you are 31 years old
+
+Soln-
+using System;
+				 
+  public class A210  
+   {  
+     public static void Main(string[] args)  
+      {
+		 String name, gender, age;
+		 Console.WriteLine("Pease enter your name:");
+		 name= Console.ReadLine();
+		 Console.WriteLine("Please enter your gender:");
+		 gender= Console.ReadLine();
+		 Console.WriteLine("Please enter your age:");
+		 age=Console.ReadLine();
+		 if(gender.Equals("Female"))
+			 Console.WriteLine("Hi Miss. "+name+" you are "+age+" years old");
+		 else if(gender.Equals("Male"))
+			 Console.WriteLine("Hi Mr. "+name+" you are "+age+" years old");
+		 else
+			 Console.WriteLine("Wrong Input");
+		 
+	}
+ }
